@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { cn } from "@/lib/utils";
 
 interface MainAppLayoutProps {
@@ -17,6 +17,12 @@ interface MainAppLayoutProps {
  * @returns {JSX.Element} The rendered layout component.
  */
 const MainAppLayout: React.FC<MainAppLayoutProps> = ({ children, className }) => {
+  
+  useEffect(() => {
+    // Apply dark mode by default
+    document.documentElement.classList.add('dark');
+  }, []);
+
   return (
     <main
       className={cn(
